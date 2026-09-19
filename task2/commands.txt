@@ -1,0 +1,67 @@
+========================================================
+PROJECT 2 : THE SERVER COMMANDER — ALL COMMANDS IN ORDER
+========================================================
+(Roman Urdu notes ke sath. Poora explanation Guide.docx mein hai.)
+
+--------------------------------------------------------
+STEP 1 : Key file ko lock karna (apne local PC/Mac/Linux terminal mein)
+--------------------------------------------------------
+chmod 400 servercommander-key.pem
+
+--------------------------------------------------------
+STEP 2 : Server se SSH connect karna (apna Public IP daalein)
+--------------------------------------------------------
+ssh -i servercommander-key.pem ec2-user@<AAPKA-PUBLIC-IP>
+
+(Ubuntu AMI use kar rahe hain to username "ec2-user" ki jagah "ubuntu" likhein)
+(pehli baar "yes" type karke Enter dabayein)
+
+--------------------------------------------------------
+STEP 3 : Ab yeh saare commands SERVER KE ANDAR (SSH session mein) chalayein
+--------------------------------------------------------
+
+# System update
+sudo dnf update -y
+
+# Nginx install
+sudo dnf install nginx -y
+
+# Nginx start
+sudo systemctl start nginx
+
+# Nginx ko boot pe auto-start karna (optional but recommended)
+sudo systemctl enable nginx
+
+# Status check (optional)
+sudo systemctl status nginx
+
+--------------------------------------------------------
+STEP 4 : Welcome page edit karna
+--------------------------------------------------------
+sudo nano /usr/share/nginx/html/index.html
+
+(Purana content delete karke, is ZIP wali index.html ka content paste karein,
+phir Ctrl+O -> Enter -> Ctrl+X se save/exit karein)
+
+--------------------------------------------------------
+STEP 5 : Verify karna
+--------------------------------------------------------
+Browser mein jayein: http://<AAPKA-PUBLIC-IP>
+"Welcome to DecodeLabs: Mission Accomplished" page dikhna chahiye.
+
+--------------------------------------------------------
+UBUNTU AMI USE KAR RAHE HAIN? Yeh commands use karein (dnf ki jagah apt):
+--------------------------------------------------------
+sudo apt update -y
+sudo apt install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+--------------------------------------------------------
+EXTRA TIP: index.html ko seedha apne PC se server pe upload karna (nano mein type karne ke bajaye)
+--------------------------------------------------------
+Apne PC ke terminal se (server ke andar nahi):
+scp -i servercommander-key.pem index.html ec2-user@<AAPKA-PUBLIC-IP>:/tmp/index.html
+
+Phir server ke andar (SSH session mein):
+sudo mv /tmp/index.html /usr/share/nginx/html/index.html

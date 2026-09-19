@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #0F1E1C;
+    --paper: #EDE8DE;
+    --gold: #C9A227;
+    --slate: #7C8F89;
+    --line: rgba(237,232,222,0.16);
+    --max: 720px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter', system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--gold); text-decoration:none;}
+  a:hover, a:focus-visible{text-decoration:underline;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  header.site{padding:88px 0 64px; border-bottom:1px solid var(--line);}
+  .kicker{font-size:14px; color:var(--slate); margin:0 0 18px;}
+  h1.name{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:600;
+    font-size:clamp(40px, 7vw, 64px);
+    line-height:1.08;
+    margin:0 0 14px;
+    max-width:11ch;
+  }
+  p.role{font-size:19px; max-width:46ch; margin:0 0 30px; color:#D7D0C0;}
+  .contact-row{display:flex; flex-wrap:wrap; gap:10px 22px; font-size:14px; color:var(--slate);}
+  .contact-row a{color:var(--slate);}
+  .contact-row a:hover{color:var(--gold);}
+  section{padding:56px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2.section-title{font-family:'Source Serif 4', Georgia, serif; font-weight:600; font-size:26px; margin:0 0 24px;}
+  p.body-text{max-width:62ch; color:#D7D0C0; margin:0 0 16px;}
+  .project{display:grid; gap:10px; padding:26px 0; border-top:1px solid var(--line);}
+  .project:first-of-type{border-top:none; padding-top:0;}
+  .project-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;}
+  .project-name{font-family:'Source Serif 4', Georgia, serif; font-size:21px; font-weight:600; margin:0;}
+  .project-tag{font-size:13px; color:var(--slate); white-space:nowrap;}
+  .project-desc{color:#D7D0C0; max-width:60ch; margin:4px 0 8px;}
+  .stack{font-size:13px; color:var(--gold);}
+  .skills-list{display:flex; flex-wrap:wrap; gap:10px 14px; padding:0; margin:0; list-style:none;}
+  .skills-list li{font-size:14px; color:#D7D0C0; padding:6px 0;}
+  .skills-list li:not(:last-child)::after{content:"·"; color:var(--slate); margin-left:14px;}
+  footer.site{padding:48px 0 80px; color:var(--slate); font-size:14px;}
+  @media (max-width:560px){header.site{padding:64px 0 44px;} .wrap{padding:0 20px;}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <p class="kicker">Portfolio</p>
+    <h1 class="name">Your Name</h1>
+    <p class="role">Freelance web developer building fast, reliable sites for clients — this page itself is hosted on cloud object storage.</p>
+    <div class="contact-row">
+      <a href="mailto:you@example.com">you@example.com</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">github.com/yourusername</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2 class="section-title">About</h2>
+    <p class="body-text">I design and build web experiences for clients, from simple landing pages to full applications. This portfolio is deployed entirely through cloud object storage — no traditional server involved.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2 class="section-title">Projects</h2>
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-name">Cloud Portfolio Deployment</h3>
+        <span class="project-tag">Infrastructure</span>
+      </div>
+      <p class="project-desc">A static portfolio hosted on object storage (AWS S3 / Azure Blob), configured for public read access and global delivery without provisioning a single server.</p>
+      <p class="stack">HTML · CSS · AWS S3 / Azure Blob Storage</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="section-title">Skills</h2>
+    <ul class="skills-list">
+      <li>Web Development</li>
+      <li>Cloud Infrastructure</li>
+      <li>HTML &amp; CSS</li>
+      <li>Git &amp; GitHub</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Deployed on cloud object storage.</p>
+  </div>
+</footer>
+
+</body>
+</html>
